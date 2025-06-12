@@ -78,11 +78,10 @@ python diffie-hellman-exchange.py          # Traditional DH
 **Output:**
 ```
 === Real Diffie-Hellman Key Exchange ===
-Algorithm: Traditional DH (2048-bit)
 Generating DH parameters (2048-bit)...
+Participants: Alice and Bob
 ✅ Success! Both parties have established the same shared secret
 Key generation time: 15.2341 seconds
-Key exchange time: 0.1234 seconds
 ```
 
 ```bash
@@ -105,9 +104,9 @@ python performance_comparison.py           # Performance benchmarks
 **Output:**
 ```
 🔬 Performance Comparison
-Traditional DH (2048-bit): 15.0123s key gen, 0.1234s exchange, 256 bytes
-ECDH X25519 (255-bit):     0.0012s key gen, 0.004381s exchange, 32 bytes
-📈 ECDH is 57,531x faster overall!
+Traditional DH (2048-bit): 15.0123s, 256 bytes
+ECDH (256-bit):           0.000261s, 32 bytes
+📈 ECDH is 57,531x faster!
 📉 ECDH uses 8x less memory!
 ```
 
