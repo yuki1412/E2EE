@@ -9,14 +9,10 @@ An interactive demonstration of Diffie-Hellman key exchange protocols with both 
 - [Overview](#overview)
 - [Features](#features)
 - [Components](#components)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
 - [Algorithms Supported](#algorithms-supported)
 - [Performance Comparison](#performance-comparison)
 - [Educational Resources](#educational-resources)
-- [Browser Compatibility](#browser-compatibility)
 - [Security Notes](#security-notes)
-- [Contributing](#contributing)
 
 ## 🌟 Overview
 
@@ -25,6 +21,7 @@ This project provides multiple implementations of Diffie-Hellman key exchange:
 1. **Educational Python Implementation** - Simple DH with small numbers for learning
 2. **Production Python Implementation** - Real cryptographic DH and ECDH using the `cryptography` library
 3. **Interactive HTML Visualizer** - Browser-based demonstration with real Web Crypto API calculations
+4. **High-Performance Go Implementation** - Ultra-fast ECDH with multiple curves
 
 Perfect for students, educators, and developers who want to understand how secure key exchange works!
 
@@ -58,172 +55,69 @@ Interactive browser-based demonstration with four algorithms:
 - X25519 (modern, ultra-fast)
 
 ### 2. Python Implementations
-
-#### Traditional DH (`diffie-hellman-exchange.py`)
-```python
-# Real 2048-bit Diffie-Hellman with proper key derivation
-python diffie-hellman-exchange.py
-```
-
-#### ECDH Implementation (`ecllipse-curves-diffie-hellman.py`)
-```python
-# Elliptic Curve Diffie-Hellman with multiple curves
-python ecllipse-curves-diffie-hellman.py
-```
-
-#### Performance Comparison (`performance_comparison.py`)
-```python
-# Benchmark Traditional DH vs ECDH performance
-python performance_comparison.py
-```
+- **Traditional DH** (`diffie-hellman-exchange.py`) - Real 2048-bit Diffie-Hellman
+- **ECDH** (`ecllipse-curves-diffie-hellman.py`) - Multiple elliptic curves
+- **Performance Comparison** (`performance_comparison.py`) - Benchmark suite
 
 ### 3. Go Implementation
-
-#### High-Performance ECDH (`ecllipse-curves-diffie-hellman.go`)
-```go
-// Ultra-fast Go implementation with multiple curves
-go run ecllipse-curves-diffie-hellman.go
-```
-
-**Features:**
-- **Native performance**: 8x faster than Python for X25519
-- **Multiple curves**: P-256, P-384, P-521, X25519
-- **Production-ready**: Proper error handling and type safety
-- **Single binary**: No dependencies after compilation
-- **Memory efficient**: Minimal overhead compared to Python
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-**For Python implementations:**
-```bash
-pip install cryptography
-```
-
-**For Go implementation:**
-```bash
-# Requires Go 1.21+ 
-go mod tidy  # Install dependencies
-```
-
-**For HTML visualizer:**
-- Modern web browser with Web Crypto API support
-- No additional dependencies required!
-
-### Quick Start
-
-1. **Clone or download** the project files
-
-2. **For Python demos:**
-   ```bash
-   cd python-dh
-   pip install cryptography
-   python diffie-hellman-exchange.py
-   ```
-
-3. **For Go demo:**
-   ```bash
-   cd python-dh
-   go mod tidy
-   go run ecllipse-curves-diffie-hellman.go
-   ```
-
-4. **For HTML visualizer:**
-   - Open `dh-visualizer.html` in your browser
-   - Select an algorithm
-   - Click "🚀 Start Key Exchange"
+- **High-Performance ECDH** (`ecllipse-curves-diffie-hellman.go`) - Ultra-fast native implementation
 
 ## 🎯 Usage
 
 ### HTML Visualizer
-
-1. **Open** `dh-visualizer.html` in a modern browser
-2. **Select** from four algorithms:
-   - Simple DH (educational)
-   - ECDH P-256 (real crypto)
-   - ECDH P-384 (higher security) 
-   - X25519 (modern/fastest)
-3. **Click** "Start Key Exchange"
-4. **Watch** the step-by-step process with real calculations!
-
-### Python Scripts
-
-#### Basic DH Exchange
 ```bash
-python diffie-hellman-exchange.py
+# Open dh-visualizer.html in your browser
+# Select algorithm → Click "Start Key Exchange"
+```
+
+### Python
+```bash
+pip install cryptography
+python diffie-hellman-exchange.py          # Traditional DH
 ```
 **Output:**
 ```
 === Real Diffie-Hellman Key Exchange ===
-
 Generating DH parameters (2048-bit)...
-Participants: Alice and Bob
-
 ✅ Success! Both parties have established the same shared secret
 Key generation time: 15.2341 seconds
 ```
 
-#### ECDH Exchange
 ```bash
-python ecllipse-curves-diffie-hellman.py
+python ecllipse-curves-diffie-hellman.py   # ECDH with multiple curves  
 ```
 **Output:**
 ```
 === ECDH Key Exchange with Multiple Curves ===
-
 Using curve: X25519
-Description: Curve25519 (X25519) - Used by WhatsApp, Signal, etc.
-
 Participants: Alice and Bob
-
-Generating X25519 key pairs...
-Public keys generated and ready for exchange
-Alice's public key size: 32 bytes
-Bob's public key size: 32 bytes
 Key exchange time: 0.004381 seconds
 ✅ Success! Both parties have established the same shared secret
-Shared secret length: 32 bytes
-Derived key length: 32 bytes
 ```
 
-#### Go ECDH Exchange
 ```bash
-go run ecllipse-curves-diffie-hellman.go
-```
-**Output:**
-```
-=== Go ECDH Key Exchange with Multiple Curves ===
-
-Using curve: X25519
-Description: Curve25519 (X25519) - Used by WhatsApp, Signal, etc.
-
-Participants: Alice and Bob
-
-Generating X25519 key pairs...
-Key generation time: 0.000548 seconds
-Key exchange time: 0.000000 seconds
-✅ Success! Both parties have established the same shared secret
-Total execution time: 0.000548 seconds
-```
-
-#### Performance Comparison
-```bash
-python performance_comparison.py
+python performance_comparison.py           # Performance benchmarks
 ```
 **Output:**
 ```
 🔬 Performance Comparison
-
 Traditional DH (2048-bit): 15.0123s, 256 bytes
 ECDH (256-bit):           0.000261s, 32 bytes
-
 📈 ECDH is 57,531x faster!
-📉 ECDH uses 8x less memory!
+```
 
-🌍 Real-World Impact:
-Traditional DH: 0.1 key exchanges per second
-ECDH:          3,832 key exchanges per second
+### Go
+```bash
+go mod tidy
+go run ecllipse-curves-diffie-hellman.go   # Ultra-fast ECDH
+```
+**Output:**
+```
+=== Go ECDH Key Exchange with Multiple Curves ===
+Using curve: X25519
+Key generation time: 0.000548 seconds
+Key exchange time: 0.000000 seconds (sub-millisecond)
+✅ Success! Both parties have established the same shared secret
 ```
 
 ## 🔧 Algorithms Supported
@@ -345,19 +239,6 @@ The visualizer shows exactly how DH works:
 5. **🔐 Shared Secret Calculation** - Both compute same secret independently
 6. **✅ Verification** - Confirm both parties have identical secrets
 
-## 🌐 Browser Compatibility
-
-The HTML visualizer requires Web Crypto API support:
-
-| Browser | Version | Status |
-|---------|---------|--------|
-| Chrome | 37+ | ✅ Full support |
-| Firefox | 34+ | ✅ Full support |
-| Safari | 7+ | ✅ Full support |
-| Edge | 12+ | ✅ Full support |
-
-**Note:** X25519 support requires newer browser versions (Chrome 70+, Firefox 72+)
-
 ## 🔒 Security Notes
 
 ### ⚠️ Important Disclaimers
@@ -376,35 +257,6 @@ The HTML visualizer requires Web Crypto API support:
 - ✅ Proper key derivation (HKDF)
 - ✅ Standard curve parameters (NIST, RFC)
 - ✅ Secure key exchange verification
-
-## 🤝 Contributing
-
-Contributions welcome! Areas for improvement:
-
-- Additional curve support (secp256k1, Ed25519)
-- More educational animations
-- Additional language implementations
-- Mobile app version
-- Advanced security features
-
-### Development Setup
-```bash
-git clone <repository>
-cd python-dh
-pip install cryptography
-# Open dh-visualizer.html in browser for testing
-```
-
-## 📄 License
-
-This project is open source and available under the MIT License.
-
-## 🙏 Acknowledgments
-
-- **NIST** for standardized elliptic curves
-- **Signal Foundation** for X25519 adoption
-- **Web Crypto API** working group
-- **Python Cryptography** library maintainers
 
 ---
 
